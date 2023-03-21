@@ -1,0 +1,18 @@
+<ion-button (click)="clearData()">Borrar Todo</ion-button>
+<ion-grid style="margin-top: 50px;">
+  <ion-row>
+    <ion-col>Titulo</ion-col>
+    <ion-col>Fecha</ion-col>
+    <ion-col>Descripcion</ion-col>
+    <ion-col>Foto</ion-col>
+  </ion-row>
+  <div *ngIf="listOfVivencias.length > 0">
+    <ion-row *ngFor="let vivenvia of listOfVivencias">
+      <ion-col>{{vivenvia.titulo}}</ion-col>
+      <ion-col>{{vivenvia.fecha}}</ion-col>
+      <ion-col>{{vivenvia.descripcion}}</ion-col>
+      <ion-col><img src="{{vivenvia.foto}}"/></ion-col>
+    </ion-row>
+  </div>
+</ion-grid>
+
