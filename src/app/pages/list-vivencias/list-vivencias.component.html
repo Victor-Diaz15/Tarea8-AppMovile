@@ -1,20 +1,33 @@
-<ion-button (click)="clearData()">Borrar Todo</ion-button>
-<ion-grid style="margin-top: 50px;">
+<div *ngIf="listOfVivencias.length > 0">
+  <h1 class="ion-text-center">Listado De Vivencias</h1>
+<ion-grid class="mt-2">
+  <ion-button expand="block" size="small" fill="outline" type="button" (click)="clearData()">
+    <ion-icon slot="start" name="trash-outline"></ion-icon>
+    BORRAR TODO
+  </ion-button>
   <ion-row>
-    <ion-col>Titulo</ion-col>
-    <ion-col>Fecha</ion-col>
-    <ion-col>Descripcion</ion-col>
-    <ion-col>Foto</ion-col>
-    <ion-col>Audio</ion-col>
-  </ion-row>
-  <div *ngIf="listOfVivencias.length > 0">
-    <ion-row *ngFor="let vivenvia of listOfVivencias">
-      <ion-col>{{vivenvia.titulo}}</ion-col>
-      <ion-col>{{vivenvia.fecha}}</ion-col>
-      <ion-col>{{vivenvia.descripcion}}</ion-col>
-      <ion-col><img [src]="convertPhotoFromBase64(vivenvia.image)"/></ion-col>
-      <ion-col><ion-button expand="block" class="mt-2" type="button" (click)="play(vivenvia.audio, vivenvia.type)">Reproducir</ion-button></ion-col>
-    </ion-row>
-  </div>
-</ion-grid>
+    <ion-col sizeMd="6" *ngFor="let vivencia of listOfVivencias">
+      <ion-card color="light">
+        <img [src]="convertPhotoFromBase64(vivencia.image)" alt="imagen_vivencia"/>
+        <ion-card-header>
+          <ion-card-title class="ion-text-center">Vivencia {{vivencia.titulo}}</ion-card-title>
+        </ion-card-header>
 
+        <ion-card-content>
+          <div class="descripcion">
+            <h3 class="ion-text-center">{{vivencia.descripcion}}</h3>
+          </div>
+          <div *ngIf="vivencia.audio" class="my-3">
+            <ion-button size="small" expand="block" type="button" (click)="play(vivencia.audio, vivencia.type)">
+              <ion-icon slot="start" name="play-outline"></ion-icon>
+              Reproducir
+            </ion-button>
+          </div>
+          <p class="float-end">{{vivencia.fecha | date}}</p>
+        </ion-card-content>
+      </ion-card>
+    </ion-col>
+  </ion-row>
+
+</ion-grid>
+</div>

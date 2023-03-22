@@ -4,7 +4,7 @@ import { Storage } from "@ionic/storage-angular";
 @Injectable({
   providedIn: 'root'
 })
-export class CrudStorageService {
+export class CrudService {
 
   constructor(private storage: Storage) {
     this.initDb();

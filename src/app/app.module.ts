@@ -6,7 +6,7 @@ import { IonicModule, IonicRouteStrategy } from '@ionic/angular';
 
 import { AppComponent } from './app.component';
 import { AppRoutingModule } from './app-routing.module';
-import { FormVivenciasComponent } from './pages/form-vivencias/form-vivencias.component';
+import { FormComponent } from './pages/form/form.component';
 import { ListVivenciasComponent } from './pages/list-vivencias/list-vivencias.component';
 import { FormsModule } from '@angular/forms';
 import { IonicStorageModule } from '@ionic/storage-angular';
@@ -14,7 +14,7 @@ import { IonicStorageModule } from '@ionic/storage-angular';
 @NgModule({
   declarations: [
     AppComponent,
-    FormVivenciasComponent,
+    FormComponent,
     ListVivenciasComponent
   ],
   imports: [
