@@ -26,6 +26,13 @@
             <ion-textarea name="descripcion" ngModel placeholder="Descripcion vivencia" [autoGrow]="true">
             </ion-textarea>
           </ion-item>
+          <ion-item class="form-item" *ngIf="image">
+            <img [src]="image" alt="foto_vivencia">
+          </ion-item>
+
+          <ion-button expand="block" class="mt-2" type="button" (click)="addPhotoToGallery()">Tomar Foto</ion-button>
+          <ion-button expand="block" class="mt-2" type="button" (click)="recordAudio()">Grabar Audio</ion-button>
+          <ion-button expand="block" class="mt-2" type="button" (click)="stopRecording()">Detener Audio</ion-button>
           <ion-button expand="block" class="mt-2" type="submit">Guardar</ion-button>
 
         </form>

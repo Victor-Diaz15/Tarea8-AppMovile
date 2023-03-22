@@ -5,13 +5,15 @@
     <ion-col>Fecha</ion-col>
     <ion-col>Descripcion</ion-col>
     <ion-col>Foto</ion-col>
+    <ion-col>Audio</ion-col>
   </ion-row>
   <div *ngIf="listOfVivencias.length > 0">
     <ion-row *ngFor="let vivenvia of listOfVivencias">
       <ion-col>{{vivenvia.titulo}}</ion-col>
       <ion-col>{{vivenvia.fecha}}</ion-col>
       <ion-col>{{vivenvia.descripcion}}</ion-col>
-      <ion-col><img src="{{vivenvia.foto}}"/></ion-col>
+      <ion-col><img [src]="convertPhotoFromBase64(vivenvia.image)"/></ion-col>
+      <ion-col><ion-button expand="block" class="mt-2" type="button" (click)="play(vivenvia.audio, vivenvia.type)">Reproducir</ion-button></ion-col>
     </ion-row>
   </div>
 </ion-grid>
